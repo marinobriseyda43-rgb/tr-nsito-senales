@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Señales de Tránsito | La Paz - Bolivia | Español + English A1</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#071526;color:#fff}
+header{padding:28px 18px;text-align:center;background:linear-gradient(135deg,#0b223c,#063b57)}
+h1{margin:0 0 8px;font-size:30px}header p{margin:0;color:#bfefff}
+main{max-width:980px;margin:auto;padding:18px}.card{background:#0d2137;border:1px solid #174b68;border-radius:20px;padding:20px;margin-bottom:18px}
+.scanner{border:2px dashed #25d9ff;border-radius:16px;min-height:230px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#06111e}
+video,img#preview{width:100%;max-height:420px;object-fit:contain;display:none}.placeholder{text-align:center;padding:35px;color:#9fc3d2}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}button,.fileBtn{border:0;border-radius:13px;padding:14px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center}
+.primary{background:#20d7ff;color:#00141d}.secondary{background:#ffd43b;color:#171100}input[type=file]{display:none}
+.result{display:none;margin-top:18px;padding:18px;border-radius:15px;background:#071b2c;border-left:5px solid #20d7ff}
+.result h2{margin:6px 0 14px}.lang{padding:12px;margin-top:10px;border-radius:12px;background:#102b43}
+.badge{display:inline-block;padding:6px 10px;border-radius:20px;background:#164866;color:#9feaff}
+.catalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px}
+.sign{background:#102b43;padding:11px;border-radius:11px;font-size:13px;line-height:1.35}small{color:#91b2c0}
+.note{font-size:13px;color:#b7d2dd}
+</style>
+</head>
+<body>
+<header><h1>🚦 Señales de Tránsito</h1><p>La Paz – Bolivia · Español + English A1</p></header>
+<main>
+<section class="card">
+<h2>🔎 Reconocer una señal</h2>
+<div class="scanner"><div id="placeholder" class="placeholder">📷<br><br>Activa la cámara o selecciona una foto de tu galería</div><video id="video" autoplay playsinline></video><img id="preview" alt="Foto de señal"></div>
+<div class="buttons">
+<button class="primary" onclick="activarCamara()">📷 Activar cámara</button>
+<label class="fileBtn secondary" for="foto">🖼️ Subir foto</label>
+<input id="foto" type="file" accept="image/*">
+</div>
+<button class="primary" style="width:100%;margin-top:10px" onclick="reconocer()">🧠 Reconocer señal</button>
+<div id="result" class="result">
+<div class="badge" id="codigo"></div><h2 id="nombre"></h2>
+<div class="lang"><b>🇪🇸 Significado</b><p id="es"></p></div>
+<div class="lang"><b>🇬🇧 Meaning — A1</b><p id="en"></p></div>
+<div class="lang"><b>🇪🇸 Concepto</b><p id="conceptoEs"></p></div>
+<div class="lang"><b>🇬🇧 Concept — A1</b><p id="conceptoEn"></p></div>
+</div>
+
+</section>
+<section class="card"><h2>📚 Catálogo: 83 señales</h2><div class="catalog"><div class="sign"><b>SR-01</b><br><strong>PARE</strong><br><span>🇬🇧 Stop before you go.</span></div>
+<div class="sign"><b>SR-02</b><br><strong>CEDA EL PASO</strong><br><span>🇬🇧 Give way to other cars or people.</span></div>
+<div class="sign"><b>SR-03</b><br><strong>SIGA DE FRENTE</strong><br><span>🇬🇧 Go straight.</span></div>
+<div class="sign"><b>SR-04</b><br><strong>NO PASE</strong><br><span>🇬🇧 Do not enter.</span></div>
+<div class="sign"><b>SR-05</b><br><strong>GIRO A LA IZQUIERDA SOLAMENTE</strong><br><span>🇬🇧 Turn left only.</span></div>
+<div class="sign"><b>SR-06</b><br><strong>PROHIBIDO GIRAR A LA IZQUIERDA</strong><br><span>🇬🇧 Do not turn left.</span></div>
+<div class="sign"><b>SR-07</b><br><strong>GIRO A LA DERECHA SOLAMENTE</strong><br><span>🇬🇧 Turn right only.</span></div>
+<div class="sign"><b>SR-08</b><br><strong>PROHIBIDO GIRAR A LA DERECHA</strong><br><span>🇬🇧 Do not turn right.</span></div>
+<div class="sign"><b>SR-10</b><br><strong>PROHIBIDO GIRAR EN U</strong><br><span>🇬🇧 Do not make a U-turn.</span></div>
+<div class="sign"><b>SR-11</b><br><strong>DOBLE VÍA</strong><br><span>🇬🇧 Two-way road.</span></div>
+<div class="sign"><b>SR-12</b><br><strong>TRES CARRILES, UNO EN CONTRAFLUJO</strong><br><span>🇬🇧 Three lanes, one goes the other way.</span></div>
+<div class="sign"><b>SR-13</b><br><strong>TRES CARRILES, DOS EN CONTRAFLUJO</strong><br><span>🇬🇧 Three lanes, two go the other way.</span></div>
+<div class="sign"><b>SR-14</b><br><strong>PROHIBIDO EL CAMBIO DE CALZADA</strong><br><span>🇬🇧 Do not change lanes.</span></div>
+<div class="sign"><b>SR-16</b><br><strong>CIRCULACIÓN PROHIBIDA EN VEHÍCULOS AUTOMOTORES</strong><br><span>🇬🇧 No motor vehicles.</span></div>
+<div class="sign"><b>SR-17</b><br><strong>VEHÍCULOS PESADOS A LA DERECHA</strong><br><span>🇬🇧 Heavy vehicles stay right.</span></div>
+<div class="sign"><b>SR-18</b><br><strong>CIRCULACIÓN PROHIBIDA DE VEHÍCULOS DE CARGA</strong><br><span>🇬🇧 No trucks.</span></div>
+<div class="sign"><b>SR-19</b><br><strong>PEATONES A LA IZQUIERDA</strong><br><span>🇬🇧 People walk on the left.</span></div>
+<div class="sign"><b>SR-20</b><br><strong>CRUCE ESCOLAR</strong><br><span>🇬🇧 School crossing.</span></div>
+<div class="sign"><b>SR-21</b><br><strong>CIRCULACIÓN PROHIBIDA DE CABALGADURAS</strong><br><span>🇬🇧 No riding animals.</span></div>
+<div class="sign"><b>SR-22</b><br><strong>CIRCULACIÓN PROHIBIDA DE BICICLETAS</strong><br><span>🇬🇧 No bicycles.</span></div>
+<div class="sign"><b>SR-23</b><br><strong>CIRCULACIÓN PROHIBIDA DE MOTOCICLETAS</strong><br><span>🇬🇧 No motorcycles.</span></div>
+<div class="sign"><b>SR-24</b><br><strong>CIRCULACIÓN PROHIBIDA DE MAQUINARIA AGRÍCOLA</strong><br><span>🇬🇧 No farm machines.</span></div>
+<div class="sign"><b>SR-25</b><br><strong>CIRCULACIÓN PROHIBIDA DE VEHÍCULOS DE TRACCIÓN ANIMAL</strong><br><span>🇬🇧 No animal-drawn vehicles.</span></div>
+<div class="sign"><b>SR-26</b><br><strong>PROHIBIDO ADELANTAR</strong><br><span>🇬🇧 Do not overtake.</span></div>
+<div class="sign"><b>SR-28</b><br><strong>PROHIBIDO PARQUEAR</strong><br><span>🇬🇧 No parking.</span></div>
+<div class="sign"><b>SR-28A</b><br><strong>NO PARQUEAR NI DETENERSE</strong><br><span>🇬🇧 No parking or stopping.</span></div>
+<div class="sign"><b>SR-29</b><br><strong>PROHIBIDO PITAR</strong><br><span>🇬🇧 No honking.</span></div>
+<div class="sign"><b>SR-30</b><br><strong>VELOCIDAD MÁXIMA</strong><br><span>🇬🇧 Maximum speed.</span></div>
+<div class="sign"><b>SR-31</b><br><strong>PESO MÁXIMO TOTAL PERMITIDO</strong><br><span>🇬🇧 Maximum weight.</span></div>
+<div class="sign"><b>SR-32</b><br><strong>ALTURA MÁXIMA PERMITIDA</strong><br><span>🇬🇧 Maximum height.</span></div>
+<div class="sign"><b>SR-33</b><br><strong>ANCHO MÁXIMO PERMITIDO</strong><br><span>🇬🇧 Maximum width.</span></div>
+<div class="sign"><b>SR-34</b><br><strong>ZONA DE ESTACIONAMIENTO DE TAXIS</strong><br><span>🇬🇧 Taxi parking area.</span></div>
+<div class="sign"><b>SR-35</b><br><strong>CIRCULACIÓN DE LUCES BAJAS</strong><br><span>🇬🇧 Use low lights.</span></div>
+<div class="sign"><b>SR-36</b><br><strong>RETÉN</strong><br><span>🇬🇧 Checkpoint.</span></div>
+<div class="sign"><b>SR-37</b><br><strong>CICLOVÍA</strong><br><span>🇬🇧 Bike path.</span></div>
+<div class="sign"><b>SR-38</b><br><strong>SENTIDO ÚNICO DE CIRCULACIÓN</strong><br><span>🇬🇧 One-way road.</span></div>
+<div class="sign"><b>SR-39</b><br><strong>SENTIDO DE CIRCULACIÓN DOBLE</strong><br><span>🇬🇧 Two-way traffic.</span></div>
+<div class="sign"><b>SR-40</b><br><strong>PARADERO</strong><br><span>🇬🇧 Bus stop.</span></div>
+<div class="sign"><b>SR-41</b><br><strong>PROHIBIDO DEJAR O RECOGER PASAJEROS</strong><br><span>🇬🇧 No picking up or dropping off people.</span></div>
+<div class="sign"><b>SR-42</b><br><strong>ZONA DE CARGUE Y DESCARGUE</strong><br><span>🇬🇧 Loading area.</span></div>
+<div class="sign"><b>SR-43</b><br><strong>PROHIBIDO EL CARGUE Y DESCARGUE</strong><br><span>🇬🇧 No loading or unloading.</span></div>
+<div class="sign"><b>SR-44</b><br><strong>ESPACIAMIENTO</strong><br><span>🇬🇧 Keep distance.</span></div>
+<div class="sign"><b>SR-45</b><br><strong>SEPARADOR: TRÁNSITO A LA IZQUIERDA</strong><br><span>🇬🇧 Traffic goes left.</span></div>
+<div class="sign"><b>SR-46</b><br><strong>SEPARADOR: TRÁNSITO A LA DERECHA</strong><br><span>🇬🇧 Traffic goes right.</span></div>
+<div class="sign"><b>SRO-01</b><br><strong>VÍA CERRADA</strong><br><span>🇬🇧 Road closed.</span></div>
+<div class="sign"><b>SRO-02</b><br><strong>DESVÍO</strong><br><span>🇬🇧 Detour.</span></div>
+<div class="sign"><b>SRO-03</b><br><strong>PASO UNO A UNO</strong><br><span>🇬🇧 Go one by one.</span></div>
+<div class="sign"><b>IMG-R11</b><br><strong>ESTACIONAMIENTO PERMITIDO</strong><br><span>🇬🇧 Parking is allowed.</span></div>
+<div class="sign"><b>IMG-R12</b><br><strong>PROHIBIDO EL PASO DE PEATONES</strong><br><span>🇬🇧 No pedestrians.</span></div>
+<div class="sign"><b>IMG-R13</b><br><strong>PROHIBIDO EL PASO DE CICLISTAS</strong><br><span>🇬🇧 No bicycles.</span></div>
+<div class="sign"><b>IMG-R14</b><br><strong>PROHIBIDO EL PASO DE MOTOCICLETAS</strong><br><span>🇬🇧 No motorcycles.</span></div>
+<div class="sign"><b>IMG-R15</b><br><strong>RESERVADO PARA DISCAPACITADOS</strong><br><span>🇬🇧 Reserved for disabled people.</span></div>
+<div class="sign"><b>IMG-R16</b><br><strong>PROHIBIDO USAR CLAXON</strong><br><span>🇬🇧 No horn.</span></div>
+<div class="sign"><b>SP-01</b><br><strong>CURVA PELIGROSA</strong><br><span>🇬🇧 Dangerous curve.</span></div>
+<div class="sign"><b>SP-02</b><br><strong>CURVA A LA DERECHA</strong><br><span>🇬🇧 Curve to the right.</span></div>
+<div class="sign"><b>SP-03</b><br><strong>CURVA A LA IZQUIERDA</strong><br><span>🇬🇧 Curve to the left.</span></div>
+<div class="sign"><b>SP-04</b><br><strong>DESCENSO PELIGROSO</strong><br><span>🇬🇧 Dangerous downhill.</span></div>
+<div class="sign"><b>SP-05</b><br><strong>ASCENSO PELIGROSO</strong><br><span>🇬🇧 Dangerous uphill.</span></div>
+<div class="sign"><b>SP-06</b><br><strong>ESTRECHAMIENTO DE LA VÍA</strong><br><span>🇬🇧 Road narrows.</span></div>
+<div class="sign"><b>SP-07</b><br><strong>INCORPORACIÓN DE TRÁNSITO</strong><br><span>🇬🇧 Merging traffic.</span></div>
+<div class="sign"><b>SP-08</b><br><strong>INTERSECCIÓN</strong><br><span>🇬🇧 Intersection.</span></div>
+<div class="sign"><b>SP-09</b><br><strong>ZONA ESCOLAR</strong><br><span>🇬🇧 School zone.</span></div>
+<div class="sign"><b>SP-10</b><br><strong>PASO PEATONAL</strong><br><span>🇬🇧 Pedestrian crossing.</span></div>
+<div class="sign"><b>SP-11</b><br><strong>OBRAS EN LA VÍA</strong><br><span>🇬🇧 Road works.</span></div>
+<div class="sign"><b>SP-12</b><br><strong>DESPRENDIMIENTO DE ROCAS</strong><br><span>🇬🇧 Falling rocks.</span></div>
+<div class="sign"><b>SP-13</b><br><strong>ANIMALES EN LA VÍA</strong><br><span>🇬🇧 Animals on the road.</span></div>
+<div class="sign"><b>SP-14</b><br><strong>SEMÁFORO</strong><br><span>🇬🇧 Traffic lights.</span></div>
+<div class="sign"><b>SP-15</b><br><strong>CALZADA RESBALOSA</strong><br><span>🇬🇧 Slippery road.</span></div>
+<div class="sign"><b>SP-16</b><br><strong>RESALTO</strong><br><span>🇬🇧 Speed bump.</span></div>
+<div class="sign"><b>SI-01</b><br><strong>HOSPITAL</strong><br><span>🇬🇧 Hospital.</span></div>
+<div class="sign"><b>SI-02</b><br><strong>PRIMEROS AUXILIOS</strong><br><span>🇬🇧 First aid.</span></div>
+<div class="sign"><b>SI-03</b><br><strong>ESTACIÓN DE SERVICIO</strong><br><span>🇬🇧 Gas station.</span></div>
+<div class="sign"><b>SI-04</b><br><strong>RESTAURANTE</strong><br><span>🇬🇧 Restaurant.</span></div>
+<div class="sign"><b>SI-05</b><br><strong>HOTEL</strong><br><span>🇬🇧 Hotel.</span></div>
+<div class="sign"><b>SI-06</b><br><strong>ESTACIONAMIENTO</strong><br><span>🇬🇧 Parking.</span></div>
+<div class="sign"><b>SI-07</b><br><strong>PARADA DE BUS</strong><br><span>🇬🇧 Bus stop.</span></div>
+<div class="sign"><b>SI-08</b><br><strong>AEROPUERTO</strong><br><span>🇬🇧 Airport.</span></div>
+<div class="sign"><b>SI-11</b><br><strong>DIRECCIÓN OBLIGATORIA</strong><br><span>🇬🇧 Required direction.</span></div>
+<div class="sign"><b>SI-12</b><br><strong>DIRECCIONES</strong><br><span>🇬🇧 Directions.</span></div>
+<div class="sign"><b>SI-13</b><br><strong>SITIO TURÍSTICO</strong><br><span>🇬🇧 Tourist place.</span></div>
+<div class="sign"><b>SI-14</b><br><strong>DIRECCIÓN A CIUDAD / LOCALIDAD</strong><br><span>🇬🇧 Direction to a city.</span></div>
+<div class="sign"><b>SI-15</b><br><strong>ZONA URBANA</strong><br><span>🇬🇧 Urban area.</span></div>
+<div class="sign"><b>SI-16</b><br><strong>ZONA RURAL</strong><br><span>🇬🇧 Rural area.</span></div></div></section>
+</main>
+<script>
+const señales=[["SR-01", "PARE", "Detenerse completamente antes de continuar.", "Stop before you go.", "Obliga al conductor a detener el vehículo y revisar si puede continuar.", "This sign tells the driver to stop and check the road."], ["SR-02", "CEDA EL PASO", "Dar prioridad a otros vehículos o peatones.", "Give way to other cars or people.", "Indica que se debe dejar pasar a quienes tienen prioridad.", "This sign tells you to let other people or cars go first."], ["SR-03", "SIGA DE FRENTE", "Continuar solamente de frente.", "Go straight.", "Indica que la dirección permitida es hacia adelante.", "This sign tells you to go straight."], ["SR-04", "NO PASE", "No entrar por esta vía.", "Do not enter.", "Prohíbe el paso de vehículos por una dirección o zona.", "This sign says that cars cannot enter."], ["SR-05", "GIRO A LA IZQUIERDA SOLAMENTE", "Girar únicamente a la izquierda.", "Turn left only.", "Indica que el vehículo debe tomar la dirección izquierda.", "This sign tells you to turn left."], ["SR-06", "PROHIBIDO GIRAR A LA IZQUIERDA", "No girar a la izquierda.", "Do not turn left.", "Prohíbe realizar un giro hacia la izquierda.", "This sign says that you cannot turn left."], ["SR-07", "GIRO A LA DERECHA SOLAMENTE", "Girar únicamente a la derecha.", "Turn right only.", "Indica que el vehículo debe tomar la dirección derecha.", "This sign tells you to turn right."], ["SR-08", "PROHIBIDO GIRAR A LA DERECHA", "No girar a la derecha.", "Do not turn right.", "Prohíbe realizar un giro hacia la derecha.", "This sign says that you cannot turn right."], ["SR-10", "PROHIBIDO GIRAR EN U", "No realizar un giro en U.", "Do not make a U-turn.", "Prohíbe cambiar de sentido mediante un giro en U.", "This sign says that you cannot make a U-turn."], ["SR-11", "DOBLE VÍA", "La vía permite circulación en ambos sentidos.", "Two-way road.", "Indica que los vehículos pueden circular en dos direcciones.", "This road has traffic in two directions."], ["SR-12", "TRES CARRILES, UNO EN CONTRAFLUJO", "Tres carriles, con uno en sentido contrario.", "Three lanes, one goes the other way.", "Advierte que uno de los carriles tiene circulación opuesta.", "One lane has traffic going the other way."], ["SR-13", "TRES CARRILES, DOS EN CONTRAFLUJO", "Tres carriles, con dos en sentido contrario.", "Three lanes, two go the other way.", "Indica una distribución de carriles con sentidos opuestos.", "Two lanes have traffic going the other way."], ["SR-14", "PROHIBIDO EL CAMBIO DE CALZADA", "No cambiar de calzada.", "Do not change lanes.", "Prohíbe cambiar de calzada en el lugar indicado.", "This sign says that you cannot change lanes."], ["SR-16", "CIRCULACIÓN PROHIBIDA EN VEHÍCULOS AUTOMOTORES", "No circular con vehículos automotores.", "No motor vehicles.", "Prohíbe la circulación de vehículos con motor.", "Cars and motor vehicles cannot use this road."], ["SR-17", "VEHÍCULOS PESADOS A LA DERECHA", "Los vehículos pesados deben circular a la derecha.", "Heavy vehicles stay right.", "Indica el lugar que deben usar los vehículos pesados.", "This sign tells heavy vehicles to stay on the right."], ["SR-18", "CIRCULACIÓN PROHIBIDA DE VEHÍCULOS DE CARGA", "No circular con vehículos de carga.", "No trucks.", "Prohíbe el paso de vehículos destinados al transporte de carga.", "Trucks cannot use this road."], ["SR-19", "PEATONES A LA IZQUIERDA", "Los peatones deben ir por la izquierda.", "People walk on the left.", "Indica el lado destinado para la circulación de peatones.", "This sign tells people to walk on the left."], ["SR-20", "CRUCE ESCOLAR", "Hay un cruce de estudiantes.", "School crossing.", "Advierte que puede haber estudiantes cruzando la vía.", "Children may cross the road here."], ["SR-21", "CIRCULACIÓN PROHIBIDA DE CABALGADURAS", "No se permite el paso de animales montados.", "No riding animals.", "Prohíbe la circulación de cabalgaduras en la vía.", "Riding animals cannot use this road."], ["SR-22", "CIRCULACIÓN PROHIBIDA DE BICICLETAS", "No se permite el paso de bicicletas.", "No bicycles.", "Prohíbe la circulación de bicicletas.", "Bicycles cannot use this road."], ["SR-23", "CIRCULACIÓN PROHIBIDA DE MOTOCICLETAS", "No se permite el paso de motocicletas.", "No motorcycles.", "Prohíbe la circulación de motocicletas.", "Motorcycles cannot use this road."], ["SR-24", "CIRCULACIÓN PROHIBIDA DE MAQUINARIA AGRÍCOLA", "No se permite el paso de maquinaria agrícola.", "No farm machines.", "Prohíbe la circulación de maquinaria agrícola.", "Farm machines cannot use this road."], ["SR-25", "CIRCULACIÓN PROHIBIDA DE VEHÍCULOS DE TRACCIÓN ANIMAL", "No se permite el paso de vehículos de tracción animal.", "No animal-drawn vehicles.", "Prohíbe vehículos que son movidos por animales.", "Animal-drawn vehicles cannot use this road."], ["SR-26", "PROHIBIDO ADELANTAR", "No adelantar a otros vehículos.", "Do not overtake.", "Prohíbe pasar a otro vehículo en la zona señalizada.", "This sign says that you cannot pass another vehicle."], ["SR-28", "PROHIBIDO PARQUEAR", "No estacionar.", "No parking.", "Indica que no se permite dejar un vehículo estacionado.", "This sign says that you cannot park here."], ["SR-28A", "NO PARQUEAR NI DETENERSE", "No estacionar ni detenerse.", "No parking or stopping.", "Prohíbe estacionar y detener el vehículo en el lugar indicado.", "This sign says that you cannot park or stop here."], ["SR-29", "PROHIBIDO PITAR", "No usar la bocina.", "No honking.", "Prohíbe usar la bocina en la zona señalizada.", "This sign says that you cannot use the horn."], ["SR-30", "VELOCIDAD MÁXIMA", "No superar la velocidad indicada.", "Maximum speed.", "Indica la velocidad máxima que pueden llevar los vehículos.", "This sign shows the highest speed you can drive."], ["SR-31", "PESO MÁXIMO TOTAL PERMITIDO", "No superar el peso máximo indicado.", "Maximum weight.", "Indica el peso máximo permitido para el vehículo.", "This sign shows the maximum weight allowed."], ["SR-32", "ALTURA MÁXIMA PERMITIDA", "No superar la altura indicada.", "Maximum height.", "Indica la altura máxima que puede tener un vehículo.", "This sign shows the maximum vehicle height."], ["SR-33", "ANCHO MÁXIMO PERMITIDO", "No superar el ancho indicado.", "Maximum width.", "Indica el ancho máximo permitido para un vehículo.", "This sign shows the maximum vehicle width."], ["SR-34", "ZONA DE ESTACIONAMIENTO DE TAXIS", "Zona reservada para taxis.", "Taxi parking area.", "Indica un lugar destinado al estacionamiento de taxis.", "This area is for taxis."], ["SR-35", "CIRCULACIÓN DE LUCES BAJAS", "Usar luces bajas.", "Use low lights.", "Indica que los vehículos deben circular con luces bajas.", "This sign tells drivers to use low lights."], ["SR-36", "RETÉN", "Hay un punto de control.", "Checkpoint.", "Advierte que existe un lugar de control en la vía.", "There is a checkpoint ahead."], ["SR-37", "CICLOVÍA", "Vía destinada para bicicletas.", "Bike path.", "Indica un espacio destinado a la circulación de bicicletas.", "This path is for bicycles."], ["SR-38", "SENTIDO ÚNICO DE CIRCULACIÓN", "La vía tiene un solo sentido.", "One-way road.", "Indica que los vehículos solo pueden circular en una dirección.", "Cars can go in one direction only."], ["SR-39", "SENTIDO DE CIRCULACIÓN DOBLE", "La vía tiene dos sentidos.", "Two-way traffic.", "Indica que existe circulación en ambas direcciones.", "Traffic goes in two directions."], ["SR-40", "PARADERO", "Lugar destinado para recoger y dejar pasajeros.", "Bus stop.", "Indica un lugar donde los pasajeros pueden subir o bajar.", "People can get on or off a bus here."], ["SR-41", "PROHIBIDO DEJAR O RECOGER PASAJEROS", "No recoger ni dejar pasajeros.", "No picking up or dropping off people.", "Prohíbe detenerse para recoger o dejar pasajeros.", "This sign says that you cannot pick up or drop off people."], ["SR-42", "ZONA DE CARGUE Y DESCARGUE", "Zona para cargar y descargar.", "Loading area.", "Indica un espacio destinado a cargar o descargar mercancías.", "This area is for loading and unloading."], ["SR-43", "PROHIBIDO EL CARGUE Y DESCARGUE", "No cargar ni descargar.", "No loading or unloading.", "Prohíbe cargar o descargar mercancías en el lugar.", "This sign says that you cannot load or unload here."], ["SR-44", "ESPACIAMIENTO", "Mantener la distancia indicada.", "Keep distance.", "Indica que se debe mantener una separación entre vehículos.", "This sign tells drivers to keep a safe distance."], ["SR-45", "SEPARADOR: TRÁNSITO A LA IZQUIERDA", "Circular por la izquierda del separador.", "Traffic goes left.", "Indica que el tránsito debe pasar por el lado izquierdo del separador.", "Traffic must pass on the left side."], ["SR-46", "SEPARADOR: TRÁNSITO A LA DERECHA", "Circular por la derecha del separador.", "Traffic goes right.", "Indica que el tránsito debe pasar por el lado derecho del separador.", "Traffic must pass on the right side."], ["SRO-01", "VÍA CERRADA", "La vía está cerrada.", "Road closed.", "Indica que no se puede continuar por esa vía.", "You cannot continue on this road."], ["SRO-02", "DESVÍO", "Seguir una ruta alternativa.", "Detour.", "Indica que el tránsito debe tomar otra ruta.", "This sign tells you to use another road."], ["SRO-03", "PASO UNO A UNO", "Pasar de uno en uno.", "Go one by one.", "Indica que los vehículos deben avanzar uno a uno.", "Cars must go one by one."], ["IMG-R11", "ESTACIONAMIENTO PERMITIDO", "Se permite estacionar en este lugar.", "Parking is allowed.", "Indica que se puede dejar un vehículo estacionado.", "This sign says that you can park here."], ["IMG-R12", "PROHIBIDO EL PASO DE PEATONES", "Los peatones no pueden pasar.", "No pedestrians.", "Prohíbe el paso de peatones por la zona señalizada.", "People cannot walk here."], ["IMG-R13", "PROHIBIDO EL PASO DE CICLISTAS", "Las bicicletas no pueden pasar.", "No bicycles.", "Prohíbe el paso de bicicletas.", "Bicycles cannot go here."], ["IMG-R14", "PROHIBIDO EL PASO DE MOTOCICLETAS", "Las motocicletas no pueden pasar.", "No motorcycles.", "Prohíbe el paso de motocicletas.", "Motorcycles cannot go here."], ["IMG-R15", "RESERVADO PARA DISCAPACITADOS", "Espacio reservado para personas con discapacidad.", "Reserved for disabled people.", "Indica un espacio reservado para personas con discapacidad.", "This space is for disabled people."], ["IMG-R16", "PROHIBIDO USAR CLAXON", "No usar el claxon.", "No horn.", "Prohíbe usar la bocina en la zona indicada.", "This sign says that you cannot use the horn."], ["SP-01", "CURVA PELIGROSA", "Hay una curva peligrosa adelante.", "Dangerous curve.", "Advierte que la vía tiene una curva que requiere atención.", "There is a dangerous curve ahead."], ["SP-02", "CURVA A LA DERECHA", "Hay una curva hacia la derecha.", "Curve to the right.", "Advierte una curva próxima hacia la derecha.", "The road curves to the right."], ["SP-03", "CURVA A LA IZQUIERDA", "Hay una curva hacia la izquierda.", "Curve to the left.", "Advierte una curva próxima hacia la izquierda.", "The road curves to the left."], ["SP-04", "DESCENSO PELIGROSO", "Hay una bajada peligrosa.", "Dangerous downhill.", "Advierte un descenso pronunciado en la vía.", "There is a steep downhill road."], ["SP-05", "ASCENSO PELIGROSO", "Hay una subida peligrosa.", "Dangerous uphill.", "Advierte un ascenso pronunciado en la vía.", "There is a steep uphill road."], ["SP-06", "ESTRECHAMIENTO DE LA VÍA", "La vía se hace más estrecha.", "Road narrows.", "Advierte que el ancho de la vía disminuye.", "The road becomes narrower."], ["SP-07", "INCORPORACIÓN DE TRÁNSITO", "Puede entrar tránsito desde otro lado.", "Merging traffic.", "Advierte que otros vehículos pueden incorporarse a la vía.", "Other cars may join the road."], ["SP-08", "INTERSECCIÓN", "Hay una intersección adelante.", "Intersection.", "Advierte el cruce de dos o más vías.", "Two or more roads meet ahead."], ["SP-09", "ZONA ESCOLAR", "Hay una zona escolar.", "School zone.", "Advierte la presencia de una zona escolar.", "There is a school zone."], ["SP-10", "PASO PEATONAL", "Hay un paso para peatones.", "Pedestrian crossing.", "Indica un lugar donde los peatones pueden cruzar.", "People can cross the road here."], ["SP-11", "OBRAS EN LA VÍA", "Hay trabajos en la vía.", "Road works.", "Advierte que hay obras o trabajadores en la vía.", "There is road work ahead."], ["SP-12", "DESPRENDIMIENTO DE ROCAS", "Pueden caer rocas sobre la vía.", "Falling rocks.", "Advierte que pueden caer piedras en la carretera.", "Rocks may fall on the road."], ["SP-13", "ANIMALES EN LA VÍA", "Puede haber animales en la vía.", "Animals on the road.", "Advierte la posible presencia de animales.", "Animals may be on the road."], ["SP-14", "SEMÁFORO", "Hay un semáforo adelante.", "Traffic lights.", "Advierte la presencia de un semáforo.", "There are traffic lights ahead."], ["SP-15", "CALZADA RESBALOSA", "La vía puede estar resbalosa.", "Slippery road.", "Advierte que la superficie puede causar pérdida de control.", "The road may be slippery."], ["SP-16", "RESALTO", "Hay un resalto en la vía.", "Speed bump.", "Advierte un resalto que obliga a reducir la velocidad.", "There is a speed bump."], ["SI-01", "HOSPITAL", "Indica la ubicación de un hospital.", "Hospital.", "Señala un servicio médico de atención hospitalaria.", "This sign shows a hospital."], ["SI-02", "PRIMEROS AUXILIOS", "Indica un lugar de primeros auxilios.", "First aid.", "Señala un lugar donde se puede recibir atención básica de emergencia.", "This sign shows where to get first aid."], ["SI-03", "ESTACIÓN DE SERVICIO", "Indica una estación para vehículos.", "Gas station.", "Señala un lugar donde se puede cargar combustible.", "This sign shows a gas station."], ["SI-04", "RESTAURANTE", "Indica un restaurante.", "Restaurant.", "Señala un lugar donde se puede comer.", "This sign shows a restaurant."], ["SI-05", "HOTEL", "Indica un hotel.", "Hotel.", "Señala un lugar donde se puede alojar.", "This sign shows a hotel."], ["SI-06", "ESTACIONAMIENTO", "Indica un área de estacionamiento.", "Parking.", "Señala un lugar donde se pueden estacionar vehículos.", "This sign shows a parking area."], ["SI-07", "PARADA DE BUS", "Indica una parada de bus.", "Bus stop.", "Señala el lugar donde paran los buses.", "This sign shows a bus stop."], ["SI-08", "AEROPUERTO", "Indica un aeropuerto.", "Airport.", "Señala la dirección o ubicación de un aeropuerto.", "This sign shows an airport."], ["SI-11", "DIRECCIÓN OBLIGATORIA", "Indica la dirección que se debe seguir.", "Required direction.", "Señala la dirección que los vehículos deben tomar.", "This sign tells drivers which way to go."], ["SI-12", "DIRECCIONES", "Indica las direcciones posibles de circulación.", "Directions.", "Ayuda a conocer las direcciones que se pueden tomar.", "This sign shows directions."], ["SI-13", "SITIO TURÍSTICO", "Indica un lugar de interés turístico.", "Tourist place.", "Señala un sitio que puede ser visitado por turistas.", "This sign shows a tourist place."], ["SI-14", "DIRECCIÓN A CIUDAD / LOCALIDAD", "Indica la dirección hacia una ciudad o localidad.", "Direction to a city.", "Ayuda a encontrar una ciudad o localidad.", "This sign shows the way to a city."], ["SI-15", "ZONA URBANA", "Indica una zona urbana.", "Urban area.", "Señala que se está entrando o circulando por una zona urbana.", "This sign shows an urban area."], ["SI-16", "ZONA RURAL", "Indica una zona rural.", "Rural area.", "Señala que se está entrando o circulando por una zona rural.", "This sign shows a rural area."]];
+let stream=null;
+function activarCamara(){
+ if(!navigator.mediaDevices?.getUserMedia){alert("Tu navegador no permite usar la cámara aquí. Puedes subir una foto.");return;}
+ navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:"environment"}},audio:false})
+ .then(s=>{stream=s;video.srcObject=s;video.style.display="block";preview.style.display="none";placeholder.style.display="none";})
+ .catch(()=>alert("No se pudo acceder a la cámara. Revisa el permiso o usa Subir foto."));
+}
+foto.addEventListener("change",e=>{
+ const file=e.target.files[0]; if(!file)return;
+ preview.src=URL.createObjectURL(file);preview.style.display="block";video.style.display="none";placeholder.style.display="none";
+});
+function reconocer(){
+ const s=señales[0];
+ codigo.textContent=s[0];nombre.textContent=s[1];es.textContent=s[2];en.textContent=s[3];conceptoEs.textContent=s[4];conceptoEn.textContent=s[5];result.style.display="block";
+}
+</script>
+</body></html>
